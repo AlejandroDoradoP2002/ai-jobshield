@@ -65,94 +65,77 @@ pip install -r requirements.txt
 # 5. Start the Streamlit web app
 streamlit run app.py
 
-🚀 Usage
+## 🚀 Usage  
+1. Open your browser to the URL shown in the terminal (typically `http://localhost:8501`).  
+2. In the web UI, paste the job-posting text or upload a `.txt`/`.csv` file.  
+3. Click **Predict**.  
+4. View the result:  
+   - **Label**: Real or Fake  
+   - **Confidence**: e.g., “Fake – 87%”  
+   - **Highlighted features**: Keywords or phrases that most influenced the decision  
+5. *(Optional)* For retraining: open `notebooks/retrain_notebook.ipynb`, then load data → preprocess → train → evaluate → save a new model.  
 
-Open your browser to the URL shown in the terminal (typically http://localhost:8501).
+---
 
-In the web UI, paste the job-posting text or upload a .txt/.csv file.
+## 📁 Project Structure  
+├── app.py # Streamlit web UI entry point
+├── model/ # Pre-trained model & vectorizer files
+├── notebooks/ # Jupyter notebook(s) for retraining
+│ └── retrain_notebook.ipynb
+├── data/ # Raw and processed datasets
+│ └── job_posts.csv
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
 
-Click Predict.
+yaml
+Copy code
 
-View the result:
+---
 
-Label: Real or Fake
+## ✅ Evaluation & Metrics  
+- Dataset: ~17,000 job postings labelled *Real* vs *Fake*  
+- Model: Logistic Regression + TF-IDF vectorizer  
+- Accuracy: ~XX% (replace with actual)  
+- Precision / Recall on *Fake* class: XX / XX (replace with actual)  
+- *Note*: Performance may vary when applied to new/unseen job types; consider retraining on domain-specific data.  
 
-Confidence: e.g., “Fake – 87%”
+---
 
-Highlighted keywords or phrases contributing to the decision
+## 📌 Roadmap & Future Enhancements  
+- [ ] Support for **multilingual postings** (Spanish, Portuguese)  
+- [ ] Move to **deep-learning model** (e.g., BERT) for richer textual understanding  
+- [ ] Add **API endpoint** (Flask or FastAPI) for integration into other systems  
+- [ ] Create **dashboard** with analytics on flagged job postings over time  
+- [ ] Build **browser extension** to highlight suspicious listings directly on job boards  
 
-(Optional) For retraining: open notebooks/retrain_notebook.ipynb, follow the steps to load data, preprocess, train, evaluate and save a new model.
+---
 
-📁 Project Structure
-├── app.py                     # Streamlit web UI entry point  
-├── model/                     # Pre-trained model & vectorizer files  
-├── notebooks/                 # Jupyter notebook(s) for retraining  
-│   └── retrain_notebook.ipynb  
-├── data/                      # Raw and processed datasets  
-│   └── job_posts.csv  
-├── requirements.txt           # Python dependencies  
-└── README.md                  # Project documentation  
+## 🤝 Contributing  
+Want to contribute? Great! Here's how:  
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature/YourFeature`).  
+3. Make your changes; ensure tests and notebooks still work.  
+4. Commit (`git commit -m 'Add feature …'`) and push (`git push origin feature/YourFeature`).  
+5. Open a Pull Request describing your enhancements.
 
-✅ Evaluation & Metrics
+Please follow the code style and naming conventions already established. Contributions are welcome — bug fixes, feature enhancements, documentation improvements, or additional languages.
 
-Dataset: ~17,000 job postings labelled Real vs Fake
+---
 
-Model: Logistic Regression + TF-IDF vectorizer
+## 📜 License  
+This project is licensed under the **MIT License** – see the file `LICENSE` for details.  
 
-Accuracy: ~XX% (replace with actual)
+---
 
-Precision / Recall on Fake class: XX / XX (replace with actual)
+## 🧡 Acknowledgements  
+- Inspired by job-fraud research and NLP deployment examples  
+- Big thanks to the open-source community for libraries like scikit-learn, Streamlit, pandas, and more  
+- Thanks to early testers for feedback and dataset contributions  
 
-Note: Performance may vary when applied to new/unseen job types; consider retraining on domain-specific data.
+---
 
-📌 Roadmap & Future Enhancements
+## 🙋‍♂️ Author  
+**Alejandro Dorado** – Senior Computer Science student @ University of North Florida (Dec 2025)  
+Find me on: [LinkedIn](https://linkedin.com/in/alejandrodorado) | [GitHub](https://github.com/AlejandroDoradoP2002)  
 
- Support for multilingual postings (Spanish, Portuguese)
-
- Move to deep-learning model (e.g., BERT) for richer textual understanding
-
- Add API endpoint (Flask or FastAPI) for integration into other systems
-
- Create dashboard with analytics on flagged job postings over time
-
- Build browser extension to highlight suspicious listings directly on job boards
-
-🤝 Contributing
-
-Want to contribute? Great! Here's how:
-
-Fork the repository.
-
-Create a new branch (git checkout -b feature/YourFeature).
-
-Make your changes, ensure tests/notebook work.
-
-Commit (git commit -m ‘Add feature …’) and push (git push origin feature/YourFeature).
-
-Open a Pull Request and describe your enhancements.
-
-Please follow the code style and naming conventions already established. All contributions are welcome — bug fixes, feature enhancements, documentation improvements, or new languages.
-
-📜 License
-
-This project is licensed under the MIT License – see the file LICENSE for details.
-
-🧡 Acknowledgements
-
-Inspired by job-fraud research and NLP deployment examples
-
-Thanks to the open-source community for libraries like scikit-learn, Streamlit, pandas, and more
-
-Thanks to early testers for feedback and dataset contributions
-
-🙋‍♂️ Author
-
-Alejandro Dorado – Senior Computer Science student @ University of North Florida (Dec 2025)
-Find me on: LinkedIn
- | GitHub
-
-“Secure software begins with clear documentation.”
-
-
-Feel free to update placeholder values (e.g., accuracy metrics, dataset size, GitHub link) as your project evolves.
-::contentReference[oaicite:0]{index=0}
+> “Secure software begins with clear documentation.”
