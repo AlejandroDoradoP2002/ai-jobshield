@@ -1,44 +1,158 @@
-# AI JobShield: Fake Job Posting Detector
-
-_A step by step guide to install, run, and understand AI JobShield, a Streamlit web app that uses machine learning to spot scam job ads._
-
----
-
-## Overview
-
-**AI JobShield** helps you tell real job postings from fraudulent ones by analyzing the text of any job advertisement. Behind the scenes, it uses:
-
-- Natural Language Processing (NLP) to turn words into numbers.
-- TF-IDF vectorization to highlight terms that matter.
-- A Logistic Regression classifier to decide “Real” vs “Fake.”
-
-All of this is wrapped in a Streamlit web interface so you can paste in a job description, click **Predict**, and get an instant verdict.
-
----
-## Key Features
-
-1. One-click prediction: Paste job text, hit Predict.
-2. Color-coded output:  
-   - Green = Likely Real  
-   - Red = Likely Fake  
-3. Confidence score: See how sure the model is.
-4. Optional retraining: Jupyter notebook included for anyone wanting to make an update on it.
+ChatGPT said:
+# AI JobShield – Fake Job Posting Detector  
+*A step-by-step guide to install, run, and understand AI JobShield — a Streamlit web app that uses machine learning to identify fraudulent job postings.*  
 
 ---
 
-## Who Is This For?
+## 🧭 Overview  
+AI JobShield helps you distinguish genuine job postings from potential scams. By analysing the text content of job ads, it applies natural-language processing (NLP) techniques and machine-learning classification to highlight suspicious patterns and flag high-risk listings.
 
-- Job Seekers who want a quick sanity check on a posting.
-- Recruiters & Moderators who need to triage listings.
-- Developers & Students learning how to deploy NLP models as web apps.
+Under the hood:  
+- NLP tokenization & preprocessing – converting raw job text into structured form  
+- TF-IDF vectorization – capturing term importance across postings  
+- Logistic Regression classifier – deciding **“Real”** vs **“Fake”** with a confidence score  
+- Web interface built in Streamlit for instant, user-friendly prediction  
+
+With AI JobShield, you can simply paste or upload a posting, click **Predict**, and get a result with explanation, confidence, and colour-coded feedback.
 
 ---
 
-## Prerequisites
+## 🌟 Key Features  
+- **Instant Prediction** – Paste or upload a job description, and click **Predict**.  
+- **Visual Feedback** –  
+  - 🟢 Green = Likely Real  
+  - 🔴 Red   = Likely Fake  
+- **Confidence Score** – Indicates how sure the model is (e.g., 92% “Fake”).  
+- **Explanation Mode** – See top features (words/phrases) influencing the decision.  
+- **Optional Retraining Notebook** – Jupyter notebook included so you can retrain or update the model with your own dataset.  
+- **Lightweight & Deployable** – Designed for easy local use or simple hosting (Streamlit share, Heroku, etc.).  
 
-Before you begin, make sure you have:
+---
 
-- Python 3.8+ installed  
-- A code editor or IDE (I recommend PyCharm )
-- A terminal or command prompt  
-- Internet access to download the dataset from Kaggle
+## 🎯 Who Should Use This?  
+- **Job Seekers**: Quickly sanity-check job postings before applying.  
+- **Recruiters & Moderators**: Triage large volumes of listings and flag suspicious ads.  
+- **Educators & Students**: Learn how NLP + ML + Web UI integrate in a real-world project.  
+- **Developers**: Explore an example of deploying an NLP classification pipeline in a web app.  
+
+---
+
+## 🛠️ Prerequisites  
+Before you begin, ensure you have:  
+- Python **3.8+** installed  
+- A suitable code editor (e.g., PyCharm, VS Code)  
+- Terminal / command-prompt access  
+- Internet connection (to optionally download dataset or dependencies)  
+
+---
+
+## 📥 Installation & Setup  
+```bash
+# 1. Clone the repository
+git clone https://github.com/YourUsername/AI-JobShield.git
+cd AI-JobShield
+
+# 2. Create and activate a virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate   # on Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Download the dataset (if retraining) or skip to step 5
+# e.g., Kaggle dataset link or internal CSV
+
+# 5. Start the Streamlit web app
+streamlit run app.py
+
+🚀 Usage
+
+Open your browser to the URL shown in the terminal (typically http://localhost:8501).
+
+In the web UI, paste the job-posting text or upload a .txt/.csv file.
+
+Click Predict.
+
+View the result:
+
+Label: Real or Fake
+
+Confidence: e.g., “Fake – 87%”
+
+Highlighted keywords or phrases contributing to the decision
+
+(Optional) For retraining: open notebooks/retrain_notebook.ipynb, follow the steps to load data, preprocess, train, evaluate and save a new model.
+
+📁 Project Structure
+├── app.py                     # Streamlit web UI entry point  
+├── model/                     # Pre-trained model & vectorizer files  
+├── notebooks/                 # Jupyter notebook(s) for retraining  
+│   └── retrain_notebook.ipynb  
+├── data/                      # Raw and processed datasets  
+│   └── job_posts.csv  
+├── requirements.txt           # Python dependencies  
+└── README.md                  # Project documentation  
+
+✅ Evaluation & Metrics
+
+Dataset: ~17,000 job postings labelled Real vs Fake
+
+Model: Logistic Regression + TF-IDF vectorizer
+
+Accuracy: ~XX% (replace with actual)
+
+Precision / Recall on Fake class: XX / XX (replace with actual)
+
+Note: Performance may vary when applied to new/unseen job types; consider retraining on domain-specific data.
+
+📌 Roadmap & Future Enhancements
+
+ Support for multilingual postings (Spanish, Portuguese)
+
+ Move to deep-learning model (e.g., BERT) for richer textual understanding
+
+ Add API endpoint (Flask or FastAPI) for integration into other systems
+
+ Create dashboard with analytics on flagged job postings over time
+
+ Build browser extension to highlight suspicious listings directly on job boards
+
+🤝 Contributing
+
+Want to contribute? Great! Here's how:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/YourFeature).
+
+Make your changes, ensure tests/notebook work.
+
+Commit (git commit -m ‘Add feature …’) and push (git push origin feature/YourFeature).
+
+Open a Pull Request and describe your enhancements.
+
+Please follow the code style and naming conventions already established. All contributions are welcome — bug fixes, feature enhancements, documentation improvements, or new languages.
+
+📜 License
+
+This project is licensed under the MIT License – see the file LICENSE for details.
+
+🧡 Acknowledgements
+
+Inspired by job-fraud research and NLP deployment examples
+
+Thanks to the open-source community for libraries like scikit-learn, Streamlit, pandas, and more
+
+Thanks to early testers for feedback and dataset contributions
+
+🙋‍♂️ Author
+
+Alejandro Dorado – Senior Computer Science student @ University of North Florida (Dec 2025)
+Find me on: LinkedIn
+ | GitHub
+
+“Secure software begins with clear documentation.”
+
+
+Feel free to update placeholder values (e.g., accuracy metrics, dataset size, GitHub link) as your project evolves.
+::contentReference[oaicite:0]{index=0}
